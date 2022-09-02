@@ -1,6 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {CategorieService} from "../../../Services/categorie.service";
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {MatDialog} from "@angular/material/dialog";
 import {Cat} from "../../../models/cat";
 import Swal from "sweetalert2";

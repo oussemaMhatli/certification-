@@ -11,7 +11,6 @@ import { UhomeComponent } from './userSide/uhome/uhome.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { CatPipe } from './pipes/cat.pipe';
-import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { AllUsersComponent } from './adminSide/components/all-users/all-users.component';
 import { UserPassedExamsComponent } from './adminSide/components/user-passed-exams/user-passed-exams.component';
@@ -82,7 +81,6 @@ import { CatquesComponent } from './adminSide/components/catques/catques.compone
         ReactiveFormsModule,
         HttpClientModule,
         FormsModule,
-        NgbModalModule,
         BrowserAnimationsModule,
         MatCheckboxModule,
 
