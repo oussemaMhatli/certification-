@@ -1,0 +1,10 @@
+.toptop.input{
+  height: min-content;
+}
+.toptop{ display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+th, td {
+  padding: 15px;
+}

@@ -1,0 +1,66 @@
+
+
+
+
+
+  <ul *ngIf="user.role!=0" class="list-group list-group-flush">
+    <li   class="list-group-item"><i class="fa fa-plus-square-o" (click)="hide()" aria-hidden="true"></i>
+      {{index+1}} <span style="margin-left: 330px">{{user.name}}</span></li>
+<hr>
+  </ul>
+<div *ngIf="!qhiden" >
+<span><b>Email</b>:       &nbsp;&nbsp; {{user.email}}</span><br>
+  <hr>
+<span><b>Code Postal</b>:       &nbsp;&nbsp; {{user.postalcode}}</span><br>
+  <hr>
+
+  <span><b>Password</b>:       &nbsp;&nbsp; {{user.password}}</span><br>
+  <hr>
+
+  <span><b>score</b>:       &nbsp;&nbsp; {{user.score}}</span><br>
+  <hr>
+
+  <span><b>ActivationCode</b>:       &nbsp;&nbsp; {{user.Activationcode}}</span><br>
+  <hr>
+
+  <span><b>isEmailConfirmed</b>:       &nbsp;&nbsp; {{user.isEmailConfirmed}}</span><br>
+  <hr>
+
+  <span><b>registrationDate</b>:       &nbsp;&nbsp; {{user.RegistrationDate}}</span><br>
+  <hr>
+
+  <span (click)="open()"><b>sendEmail</b>:       &nbsp;&nbsp; <i class="fa fa-envelope-o"  aria-hidden="true"></i>
+</span><br>
+  <hr>
+
+  <span><b>Edit</b>:       &nbsp;&nbsp; <i class="fa fa-pencil" (click)="goEdit(user._id)" aria-hidden="true"></i></span><br>
+  <hr>
+
+  <span><b>Delete</b>:       &nbsp;&nbsp; <i class="fa fa-trash" (click)="delete(user._id)" aria-hidden="true"></i></span>
+  <hr>
+
+</div>
+  <div class="modal fade my-modal" tabindex="-1" role="dialog" #add>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <label for="exampleInputEmail"> Name</label>
+          <input type="email" class="form-control" id="exampleInputEmail" name="name" [(ngModel)]="user.name" aria-describedby="emailHelp" placeholder="Enter categorie name">
+        </div>
+        <div class="modal-body">
+          <label for="exampleInputEmail1">Email</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" name="email" [(ngModel)]="user.email" aria-describedby="emailHelp" placeholder="Enter categorie name">
+        </div>
+        <div class="modal-body">
+          <label for="exampleInputEmail2">confirmationCode</label>
+          <input type="email" class="form-control" id="exampleInputEmail2" name="name" [(ngModel)]="text" aria-describedby="emailHelp" placeholder="Enter categorie name">
+        </div>
+
+
+          <button type="button" class="btn btn-success" (click)="sendmail()" >send</button>
+          <button type="button" class="btn btn-secondary" (click)="close()">Close</button>
+        </div>
+
+    </div>
+    </div>
+

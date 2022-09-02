@@ -1,0 +1,58 @@
+<br>
+<div class="toptop">
+  <input type="text" name="Search" class="input-group-text" [(ngModel)]="Search"   style="width: 280px ;margin-left: 73%" placeholder="Search">
+</div>
+<hr>
+
+<div class="row mb-3 host">
+
+  <div class="col-lg-4 card "  *ngFor="let item of categ|cat:Search"  >
+    <img class="card-img-top" src="{{fileUrl+item.img}}" style="height: 60%" alt="Card image cap">
+    <div class="card-body">
+      <h4 class="card-title"> {{item.name}}</h4>
+      <p class="card-text"> {{item.desc}}</p>
+
+      <a (click)="open(item.name)" class="btn btn-primary">Start</a>
+    </div>
+  </div>
+
+</div>
+<div class="modal fade my-modal" tabindex="-1" role="dialog" #edit>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+
+        <div class="form-group">
+          <label for="exampleInputEmail">Confirmation Code</label>
+          <input type="email" class="form-control" id="exampleInputEmail" name="code" [(ngModel)]="code" aria-describedby="emailHelp" placeholder="Enter confirmation code">
+        </div>
+        <button type="button" class="btn btn-success" (click)="validate()">confirm</button>
+
+        <button type="button" class="btn btn-secondary" (click)="close()">Close</button>
+        <div id="formFooter">
+          <a class="underlineHover" (click)="send()">Send an other code</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade my-modal" tabindex="-1" role="dialog" #notice>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h2>Notice</h2>
+        <hr>
+        <h2 style="background: #fd3550">Once you start, you cannot suspend the timer. Please submit your responses in time. Your answers will be sent automatically when the time is up.are you ready <b>{{us?.name}}</b>!!</h2>
+
+        <button type="button" class="btn btn-success" (click)="gototest()">confirm</button>
+
+        <button type="button" class="btn btn-secondary" (click)="close1()">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

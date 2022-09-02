@@ -1,0 +1,20 @@
+<br>
+<div >
+  <input type="text" name="Search" [(ngModel)]="Search" class="input-group-text"   style="width: 280px ;margin-left: 73%" placeholder="Search">
+</div>
+<hr>
+<table class="table ">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col" style="border-spacing :200px">Name</th>
+  </tr>
+  </thead>
+
+</table>
+<div *ngFor="let item of users|user:Search;index as i">
+  <app-user  [user]="item" [index]="i" (openEvent)="getAll()"></app-user>
+
+</div>
+
+

@@ -1,0 +1,12 @@
+<div class="single-story hay " (click)="go()" *ngIf="user.role!=0">
+  <div class="story-dp bay ">
+    <img src="{{fileUrl+user.img}}" width="30px">
+  </div>
+  <div class="story-author lay">
+    <p class="name">{{user.name}}
+      <span class="badge rounded-pill badge-notification bg-danger"  >5</span>
+    </p>
+  </div>
+  <hr>
+
+</div>

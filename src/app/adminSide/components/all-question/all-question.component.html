@@ -1,0 +1,33 @@
+<br>
+<div >
+  <input type="text" name="Search" [(ngModel)]="Search" class="input-group-text"   style="width: 280px ;margin-left: 73%" placeholder="Search">
+</div>
+<hr>
+<table class="table table-striped ">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col" >Questions Name</th>
+    <th scope="col" >Image</th>
+    <th scope="col" >Categorie</th>
+    <th scope="col" >Level</th>
+    <th scope="col" >Type</th>
+    <th scope="col" >update</th>
+    <th scope="col" >delete</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr *ngFor="let item of question|question:Search;index as i" >
+    <th scope="row" >{{i+1}}</th>
+    <td>{{item.questionText}}</td>
+    <td><img src="{{fileUrl+item.img}}" style="width: 50px;height: 50px"></td>
+    <td>{{item.categorie}}}</td>
+    <td>{{item.level}}</td>
+    <td>{{item.type}}</td>
+    <td><i class="fa fa-pencil" style="color: springgreen" aria-hidden="true" (click)="go(item._id)" ></i></td>
+    <td><i class="fa fa-trash" (click)="delete(item._id)" aria-hidden="true" style="color: red"></i></td>
+  </tr>
+
+  </tbody>
+</table>

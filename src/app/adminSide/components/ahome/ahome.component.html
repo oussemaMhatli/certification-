@@ -1,0 +1,33 @@
+
+
+
+
+
+<div id="mySidenav" class="sidenav" [ngClass]="clicked ?'sidenav':'open'">
+  <a routerLink="Dashboard"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a>
+  <a routerLink="categ"><i class="fa fa-pencil-square-o" aria-hidden="true" style="padding-right:10px ;"></i>Categories</a>
+  <a (click)="afficher()" ><i class="fa fa-user" aria-hidden="true" style="padding-right:10px ;"></i>Users<i class="fa fa-ellipsis-h" aria-hidden="true" style="padding-right:10px ;margin-left: 58%"></i>
+  </a>
+  <a *ngIf="!hidden" routerLink="alluser"  style="margin-left: 10%"><i class="fa fa-dot-circle-o" aria-hidden="true" style="padding-right:10px ;"></i>All Users</a>
+  <a *ngIf="!hidden" style="margin-left: 10%" routerLink="userpassed" ><i class="fa fa-dot-circle-o" aria-hidden="true" style="padding-right:10px ;"></i>Users who passed exam</a>
+
+  <a (click)="afficherQ()"><i class="fa fa-question-circle" aria-hidden="true" style="padding-right:10px ;"></i>Questions<i class="fa fa-ellipsis-h" aria-hidden="true" style="padding-right:10px ;margin-left: 40%"></i></a>
+  <a *ngIf="!Qhidden" routerLink="allQ" style="margin-left: 10%"><i class="fa fa-dot-circle-o" aria-hidden="true" style="padding-right:10px ;"></i>All Questions </a>
+  <a *ngIf="!Qhidden" routerLink="addQ" style="margin-left: 10%"><i class="fa fa-dot-circle-o" aria-hidden="true" style="padding-right:10px ;"></i>Add Questions</a>
+
+  <a routerLink="msg"><i class="fa fa-comment" aria-hidden="true" style="padding-right:10px ;"></i>Messages</a>
+
+  <a  (click)="logout()" ><i class="fa fa-sign-out" aria-hidden="true" style="padding-right:10px ;"></i>logout</a>
+</div>
+
+
+
+
+<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+<div class="main" [ngClass]="clicked ?'main':'openmain'">
+  <!-- Use any element to open the sidenav -->
+  <span (click)="openNav()"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+  </svg></span>
+  <router-outlet></router-outlet>
+</div>

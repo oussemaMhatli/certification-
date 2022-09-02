@@ -1,0 +1,25 @@
+
+<div class="toptop">
+  <h3><i class="fa fa-pencil-square-o" aria-hidden="true"></i>certification test</h3>
+  <p style="margin-left: 70%"><span style="color: #fd3550">{{timeLeft/3600}}H</span> Seconds Left....</p>
+</div>
+<hr>
+<div *ngFor="let item of questions">
+  <app-quest [question]="item"></app-quest>
+</div>
+<button type="button" class="btn btn-primary" style="margin-left: 90%" (click)="open()">finish test</button>
+<div class="modal fade my-modal" tabindex="-1" role="dialog" #edit>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <h2>Notice</h2>
+
+  <h4 style="background: #fd3550">are you want to send your answer!!</h4>
+
+        <button type="button" class="btn btn-success" (click)="finish()" >confirm</button>
+        <button type="button" class="btn btn-success" (click)="close()" >close</button>
+
+
+
+    </div>
+  </div>
+</div>

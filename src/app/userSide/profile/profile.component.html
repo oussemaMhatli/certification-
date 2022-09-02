@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="main-body">
+
+
+    <div class="row gutters-sm">
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center">
+              <img src="{{fileUrl+user.data.img}}" alt="Admin" class="rounded-circle" width="150">
+              <div class="mt-3">
+                <h4>{{user.data.name}}</h4>
+                <p class="text-secondary mb-1">{{user.data.email}}</p>
+                <p class="text-muted font-size-sm">{{user.data.password}}</p>
+                <button class="btn btn-success" (click)="open()">Update profile</button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-8">
+
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col">Categorie</th>
+              <th scope="col">Level</th>
+              <th scope="col">Activation Code</th>
+              <th scope="col">ExamDate</th>
+              <th scope="col">Score</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>nest</td>
+              <td>Level 1</td>
+              <td>mmMo9</td>
+              <td>31/08/2022</td>
+              <td>60%</td>
+            </tr>
+            <tr>
+              <td>angular</td>
+              <td>Level 2</td>
+              <td>ozd4q</td>
+              <td>20/07/2022</td>
+              <td>55%</td>
+            </tr>
+            <tr>
+              <td>java</td>
+              <td>Level 2</td>
+              <td>VbGBA</td>
+              <td>11/06/2022</td>
+              <td>30%</td>
+            </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="modal fade my-modal" tabindex="-1" role="dialog" #edit>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+
+        <div class="form-group">
+          <label for="exampleInputEmail">Name</label>
+          <input type="email" class="form-control" id="exampleInputEmail" name="name" [(ngModel)]="name" aria-describedby="emailHelp" placeholder="Enter categorie name">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmaila1">logo</label>
+          <input type="file" class="form-control" id="exampleInputEmaila1" name="img" (change)="onImageUpload($event)" [(ngModel)]="img" aria-describedby="emailHelp" placeholder="Enter categorie name">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmaila2">Description</label>
+          <input type="email" class="form-control" id="exampleInputEmaila2" name="email" [(ngModel)]="email" aria-describedby="emailHelp" placeholder="Enter categorie name">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmaila3">password</label>
+          <input type="email" class="form-control" id="exampleInputEmaila3" name="password" [(ngModel)]="pass" aria-describedby="emailHelp" placeholder="Enter categorie name">
+        </div>
+        <button type="button" class="btn btn-success" (click)="update()">update</button>
+
+        <button type="button" class="btn btn-secondary" (click)="close()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
