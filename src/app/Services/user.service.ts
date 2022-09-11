@@ -46,5 +46,9 @@ api=environment.Api+'user'
     return this.http.patch<any>(`${this.api}/exam/${id}/${code}`,{})
   }
 
+  UpdateUser(id: string, data: User):Observable<any>{
+    return this.http.put<any>(`${this.api}/up/${id}`,data)
+  }
+
 
 }

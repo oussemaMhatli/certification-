@@ -29,7 +29,10 @@ export class QuestionsService {
   count ():Observable<number>{
     return this.http.get<number>(`${this.api}/countQ` );
   }
-  getbycat ( cat:string):Observable<any>{
-    return this.http.get<any>(`${this.api}/findCAt/${cat}` );
+  getbycat ( cat:string,lev:string):Observable<any>{
+    return this.http.get<any>(`${this.api}/findCAt/${cat}/${lev}` );
+  }
+  getby ( cat:string):Observable<any>{
+    return this.http.get<any>(`${this.api}/findcat/${cat}` );
   }
 }
