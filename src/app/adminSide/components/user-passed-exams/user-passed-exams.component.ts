@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../../../Services/user.service";
+import {ResultService} from "../../../Services/result.service";
 
 @Component({
   selector: 'app-user-passed-exams',
@@ -9,15 +10,15 @@ import {UserService} from "../../../Services/user.service";
 export class UserPassedExamsComponent implements OnInit {
   Search!: string;
 users:any
-  constructor(private userService:UserService) { }
+  results:any
+  constructor(private userService:UserService,private resService:ResultService) { }
 
   ngOnInit(): void {
   this.getAll()
   }
   getAll(){
-    this.userService.AllUser().subscribe(res=>{
-      this.users=res
-      console.log('r5s',this.users)
+    this.resService.getAll().subscribe(res=>{
+      this.results=res
     })
   }
 }

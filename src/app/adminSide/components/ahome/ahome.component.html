@@ -15,7 +15,8 @@
   <a *ngIf="!Qhidden" routerLink="allQ" style="margin-left: 10%"><i class="fa fa-dot-circle-o" aria-hidden="true" style="padding-right:10px ;"></i>All Questions </a>
   <a *ngIf="!Qhidden" routerLink="addQ" style="margin-left: 10%"><i class="fa fa-dot-circle-o" aria-hidden="true" style="padding-right:10px ;"></i>Add Questions</a>
 
-  <a routerLink="msg"><i class="fa fa-comment" aria-hidden="true" style="padding-right:10px ;"></i>Messages</a>
+  <a routerLink="msg" (click)="updatevis()"><i class="fa fa-comment" aria-hidden="true" style="padding-right:10px ;"></i>Messages      <span class="badge rounded-pill badge-notification bg-danger" *ngIf="nbrmsg>0" >{{nbrmsg}}</span>
+  </a>
 
   <a  (click)="logout()" ><i class="fa fa-sign-out" aria-hidden="true" style="padding-right:10px ;"></i>logout</a>
 </div>

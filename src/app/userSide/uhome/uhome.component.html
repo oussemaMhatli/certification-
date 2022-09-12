@@ -10,7 +10,7 @@
   <a *ngIf="!hidden" routerLink="inform"  style="margin-left: 10%"><i class="fa fa-dot-circle-o" aria-hidden="true" style="padding-right:10px ;"></i>Informations</a>
   <a *ngIf="!hidden" style="margin-left: 10%" routerLink="start" ><i class="fa fa-dot-circle-o" aria-hidden="true" style="padding-right:10px ;"></i>Start</a>
 
-  <a routerLink="usermsg" ><i class="fa fa-comment" aria-hidden="true" style="padding-right:10px ;"></i>Message</a>
+  <a routerLink="usermsg" (click)="update()"><i class="fa fa-comment" aria-hidden="true" style="padding-right:10px ;"></i>Message  <span class="badge rounded-pill badge-notification bg-danger" *ngIf="nbrmsg>0" >{{nbrmsg}}</span></a>
 
   <a  (click)="logout()" ><i class="fa fa-sign-out" aria-hidden="true" style="padding-right:10px ;"></i>logout</a>
 </div>

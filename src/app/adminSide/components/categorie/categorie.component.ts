@@ -37,7 +37,6 @@ cat!:any
  getAll(){
     this.catService.AllCat().subscribe(data=>{
       this.categ=data;
-      console.log('be3th',this.categ)
     })
  }
   onImageUpload(event: any) {
@@ -76,7 +75,6 @@ this.catService.findOne(_id).subscribe(res=>{
   this.nam=this.cat.name
   this.id=this.cat._id
   this.descup=this.cat.desc
-  console.log(this.id,"laaaaaaaaaaaa")
 })
   }
   delete(id: string) {
@@ -94,7 +92,6 @@ this.catService.findOne(_id).subscribe(res=>{
     let c=new Cat()
     if(this.name.length>0 && this.img!=undefined){
       this.fileservice.upload(this.img).subscribe(res => {
-        console.log(res.filename,'bnyn')
 
       c.name=this.name
       c.img=res.filename

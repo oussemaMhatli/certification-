@@ -13,7 +13,7 @@
 
 </table>
 <div *ngFor="let item of users|user:Search;index as i">
-  <app-user  [user]="item" [index]="i" (openEvent)="getAll()"></app-user>
+  <app-user  [user]="item" [index]="i" (openEvent)="getAll()" ></app-user>
 
 </div>
 

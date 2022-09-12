@@ -20,7 +20,7 @@ export class AllUsersComponent implements OnInit {
 getAll(){
     this.userService.AllUser().subscribe(res=>{
       this.users=res
-      console.log('r5s',this.users)
+      console.log(res,'mariem')
     })
 }
   hide(item:any) {

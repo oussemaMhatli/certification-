@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {MessageService} from "../../../Services/message.service";
+import jwt_decode from "jwt-decode";
 
 @Component({
   selector: 'app-ahome',
@@ -9,16 +11,30 @@ import {Router} from "@angular/router";
 export class AhomeComponent implements OnInit {
 
 
-
+user:any
+  nbrmsg!:number
 
 
   clicked=false;
   hidden= true;
   Qhidden=true;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,private msgS:MessageService) { }
 
   ngOnInit(): void {
+    const token = localStorage.getItem('mariemmariem');
+
+    if(token) {
+      let decoded = jwt_decode(token);
+
+      this.user=decoded;
+    }
+    this.countmsg()
+  }
+  countmsg(){
+    this.msgS.countmsgforhome(this.user.data._id).subscribe(res=>{
+      this.nbrmsg=res
+    })
   }
 
 
@@ -37,5 +53,12 @@ export class AhomeComponent implements OnInit {
   logout() {
     localStorage.removeItem('mariemmariem');
     this.router.navigate(['']);
+  }
+
+  updatevis() {
+this.msgS.uodatemsgforhome().subscribe(res=>{
+  this.countmsg()
+})
+
   }
 }

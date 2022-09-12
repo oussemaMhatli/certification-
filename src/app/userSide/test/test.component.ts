@@ -2,6 +2,10 @@ import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {QuestionsService} from "../../Services/questions.service";
 import {Observable, SchedulerLike, timer} from "rxjs";
 import {Router} from "@angular/router";
+import {ResultService} from "../../Services/result.service";
+import {Result} from "../../models/result";
+import jwt_decode from "jwt-decode";
+import {ScoreService} from "../../Services/score.service";
 
 @Component({
   selector: 'app-test',
@@ -13,19 +17,46 @@ name:any;
 questions:any
   scheduler:any
   dueTime:any
+  randomlevel!:boolean
+  lev!:string
+  somme!:number
+  correctanswer!:number
+  incorrectanswer!:number
+  emptyanswer!:number
+  totlalType:number=0
+a!:number
   @ViewChild('edit', { static: false }) myModal1!: ElementRef;
   elm1!: HTMLElement;
-
-  constructor(private QService:QuestionsService,private router:Router) { }
+user:any
+  constructor(private QService:QuestionsService,private router:Router,
+              private RS:ResultService, private scoreS:ScoreService) { }
   ngAfterViewInit(): void {
     this.elm1 = this.myModal1.nativeElement as HTMLElement;
 
   }
   ngOnInit(): void {
+
+
+
+
+    console.log('tttttttt',this.questions)
+  this.somme=0
+  this.correctanswer=0
+  this.incorrectanswer=0
+  this.totlalType=0
+    this.randomlevel =  Boolean(Math.round(Math.random()));
+    console.log(this.randomlevel,'raw3a')
     this.name=localStorage.getItem('Cat')
     console.log(this.name)
     this.getcat()
+    const token = localStorage.getItem('mariemmariem');
 
+    if(token) {
+      let decoded = jwt_decode(token);
+
+      this.user=decoded;
+      console.log(this.user.data,'7ata')
+    }
     this.interval = setInterval(() => {
       if(this.timeLeft > 0) {
         this.timeLeft--;
@@ -33,7 +64,6 @@ questions:any
         this.timeLeft = 10800;
       }
       if (this.timeLeft==0){
-        console.log('yaaaaaaaaaaaaaaaaaaaaaaaaaaa')
         this.router.navigate(['/userhome/res'])
 
       }
@@ -51,9 +81,17 @@ questions:any
     }, 75);
   }
   getcat(){
-    this.QService.getbycat(this.name).subscribe(res=>{
+    if(this.randomlevel == true){
+      this.lev='level1'
+    }else{
+      this.lev='level2'
+    }
+
+    this.QService.getbycat(this.name,this.lev).subscribe(res=>{
       this.questions=res
+      this.scoreS.t=res
       console.log('a',this.questions)
+      console.log('b',this.scoreS.t)
     })
   }
   timeLeft: number = 10800;
@@ -66,7 +104,52 @@ questions:any
   }
 
   finish() {
-    this.router.navigate(['/userhome/res'])
+
+    let R=new Result()
+    R.name=this.user.data.name
+    R.email=this.user.data.email
+    R.activationcode=this.user.data.Examcode
+    R.password=this.user.data.password
+    R.postalcode=this.user.data.postalcode
+    R.registrationdate=this.user.data.registrationdate
+    R.categori=this.name
+    R.level='level1'
+    R.Quesnumber=this.questions.length
+    R.wrongques=this.scoreS.incorrect
+    R.correct=this.scoreS.correct
+    R.emptyques=this.questions.length-(this.scoreS.incorrect+this.scoreS.correct)
+    for (var i of this.questions) {
+      this.totlalType=this.totlalType+i.type
+
+
+    }
+    R.score=(this.scoreS.s/this.totlalType)*100
+    R.examDate=new Date()
+    R.userID=this.user.data._id
+ this.RS.creatR(R).subscribe(res=>{
+   console.log(res,'bringa')
+   this.router.navigate(['/userhome/res/'+res._id])
+
+   console.log('rou7zebda',(this.scoreS.s/this.totlalType)*100)
+   console.log(this.totlalType,'offffffffff')
+ })
 
   }
+  countChangedHandler(e:any) {
+   this.scoreS.cal(e.id,e.test)
+    console.log('hedhy li 7ajtna bha tw',this.scoreS.s)
+    console.log('correct',this.scoreS.correct)
+    console.log('noncorrect',this.scoreS.incorrect)
+
+  }
+  countChangedHandler1(count: number) {
+
+  }
+  countChangedHandler2(count: number) {
+
+  }
+  countChangedHandler3(count: number) {
+
+  }
+
 }

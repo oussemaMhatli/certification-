@@ -4,6 +4,7 @@ import {FileService} from "../../../Services/file.service";
 import {Question} from "../../../models/question";
 import {QuestionsService} from "../../../Services/questions.service";
 import {FormControl} from "@angular/forms";
+import {CategorieService} from "../../../Services/categorie.service";
 
 @Component({
   selector: 'app-add-question',
@@ -13,6 +14,8 @@ import {FormControl} from "@angular/forms";
 export class AddQuestionComponent implements OnInit {
 file:any;
   selectedType = '';
+  selected = '';
+  selectedCat = '';
   text!: string;
   cat!:string;
   point!:number;
@@ -27,13 +30,22 @@ file:any;
   zip: any;
   level: any;
   type:any
-  constructor(private fileService:FileService,private Qservice:QuestionsService) { }
+  categ:any
+  constructor(private fileService:FileService,private Qservice:QuestionsService,private categS:CategorieService) { }
 
   ngOnInit(): void {
+    this.categS.AllCat().subscribe(res=>{
+      this.categ=res
+    })
   }
   onSelected(value:string): void {
     this.selectedType = value;
-    console.log(this.selectedType,'gmara')
+  }
+  onSelected1(value:string): void {
+    this.selected = value;
+  }
+  onSelectedCat(value:string): void {
+    this.selectedCat = value;
   }
   onImageUpload(event: any) {
     this.file = event.target.files[0];
@@ -57,7 +69,7 @@ file:any;
   checkCheckBoxvalue4(event: any){
     this.ch4=event.checked
   }
-  async addForm() {
+  async addForm1() {
 
     let q = new Question();
 
@@ -66,23 +78,35 @@ file:any;
       let r1={
 
         correct:this.ch1,
-        text:this.rep1
+        text:this.rep1,
+        id:'rep1'
       }
       let r2={
         correct:this.ch2,
-        text:this.rep2
+        text:this.rep2,
+        id:'rep2'
+
       }
       let r3={
         correct:this.ch3,
-        text:this.rep3
+        text:this.rep3,
+        id:'rep3'
+
       }
       let r4={
         correct:this.ch4,
-        text:this.rep4
+        text:this.rep4,
+        id:'rep4'
+
       }
      q.questionText=this.text
       q.img=res.filename;
-     q.level=this.level
+      if(this.selected=='level1'){
+        q.level='level1'
+      }
+      if(this.selected=='level2'){
+        q.level='level2'
+      }
 if(this.selectedType=='type1'){
   q.type=10
 }
@@ -96,13 +120,12 @@ if(this.selectedType=='type2'){
         q.type=25
       }
 
-      q.categorie=this.cat
+      q.categorie=this.selectedCat
       q.reponse1=r1
       q.reponse2=r2
       q.reponse3=r3
       q.reponse4=r4
 
-      console.log('aabdou',q)
 if(this.zip==undefined){
   q.zip=""
   this.Qservice.createQ(q).subscribe(res => {
@@ -114,7 +137,6 @@ if(this.zip==undefined){
             q.zip=data.filename
 
 
-        console.log(q.zip,"3la moulena")
         this.Qservice.createQ(q).subscribe(res => {
           Swal.fire({title: "Question created", icon: "success"})
         }, err => Swal.fire('champs non valide', 'error', "error"))
@@ -124,7 +146,68 @@ if(this.zip==undefined){
     })
 
   }
+  async addForm() {
 
+    let q = new Question();
+
+    this.fileService.upload(this.file).subscribe(res => {
+
+
+      q.questionText=this.text
+      q.img=res.filename;
+      if(this.selected=='level1'){
+        q.level='level1'
+      }
+      if(this.selected=='level2'){
+        q.level='level2'
+      }
+      if(this.selectedType=='type1'){
+        q.type=10
+      }
+      if(this.selectedType=='type2'){
+        q.type=15
+      }
+      if(this.selectedType=='type3'){
+        q.type=20
+      }
+      if(this.selectedType=='type4'){
+        q.type=25
+      }
+
+      q.categorie=this.selectedCat
+      q.choices=[this.rep1,this.rep2,this.rep3,this.rep4]
+      if(this.ch1){
+        q.correct=this.rep1
+      }
+      if(this.ch2){
+        q.correct=this.rep2
+      }
+      if(this.ch3){
+        q.correct=this.rep3
+      }
+      if(this.ch4){
+        q.correct=this.rep4
+      }
+      if(this.zip==undefined){
+        q.zip=""
+        this.Qservice.createQ(q).subscribe(res => {
+          Swal.fire({title: "Question created", icon: "success"})
+        }, err => Swal.fire('champs non valide', 'error', "error"))
+      }else{
+        this.fileService.upload(this.zip).subscribe(data=>{
+
+          q.zip=data.filename
+
+
+          this.Qservice.createQ(q).subscribe(res => {
+            Swal.fire({title: "Question created", icon: "success"})
+          }, err => Swal.fire('champs non valide', 'error', "error"))
+        })
+      }
+
+    })
+
+  }
 
 
 }

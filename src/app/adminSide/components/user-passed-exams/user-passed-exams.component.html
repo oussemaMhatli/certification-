@@ -11,6 +11,8 @@
     <th scope="col" >Email</th>
     <th scope="col" >Postal Code</th>
     <th scope="col" >Password</th>
+    <th scope="col" >Categories</th>
+    <th scope="col" >level</th>
     <th scope="col" >Score</th>
     <th scope="col" >Activation Code</th>
     <th scope="col" >Registration Date</th>
@@ -21,18 +23,20 @@
 
   <tbody
   >
-  <ng-container  *ngFor="let item of users|user:Search;index as i"; >
+  <ng-container  *ngFor="let item of results|result:Search;index as i"; >
 
-  <tr *ngIf="item.passedExam==true" >
+  <tr >
     <th scope="row" >{{i+1}}</th>
     <td>{{item.name}}</td>
     <td>{{item.email}}</td>
     <td>{{item.postalcode}}</td>
     <td>{{item.password}}</td>
+    <td>{{item.categori}}</td>
+    <td>{{item.level}}</td>
     <td>{{item.score}}</td>
-    <td>{{item.Activationcode}}</td>
-    <td>{{item.RegistrationDate}}</td>
-    <td>{{item.examDate}}</td>
+    <td>{{item.activationcode}}</td>
+    <td>{{item.registrationdate| date :'short'}}</td>
+    <td>{{item.examDate| date :'short'}}</td>
     <td></td>
   </tr>
   </ng-container>

@@ -1,11 +1,11 @@
-<h2 style="color: #15ca20;margin-left: 25%" *ngIf="hidden">congratulation on your outstanding result.you passed exam</h2>
-<h2 style="color: #fd3550;margin-left: 30%" *ngIf="!hidden">sorry you have under of 50% .Good luck</h2>
-<button class="btn btn-success" style="margin-left: 80%" *ngIf="hidden" >download certfication</button>
+<h2 style="color: #15ca20;margin-left: 25%" *ngIf="result.score>=75">congratulation on your outstanding result.you passed exam</h2>
+<h2 style="color: #fd3550;margin-left: 30%" *ngIf="result.score<75">sorry you have under of 75% .Good luck</h2>
+<button class="btn btn-success" style="margin-left: 80%" *ngIf="result.score>=75" >download certfication</button>
 <table class="table">
   <thead>
   <tr>
     <th scope="col">total number of question</th>
-    <th scope="col">15</th>
+    <th scope="col">{{result.Quesnumber}}</th>
 
   </tr>
   </thead>
@@ -13,22 +13,22 @@
   <tr>
 
     <th>hight answer</th>
-    <td>10</td>
+    <td>{{result.correct}}</td>
   </tr>
   <tr>
 
     <th>Wrong answer</th>
-    <td>10</td>
+    <td>{{result.wrongques}}</td>
   </tr>
   <tr>
 
     <th>Unanswerd question</th>
-    <td>4</td>
+    <td>{{result.emptyques}}</td>
   </tr>
   <tr>
 
     <th>Your score </th>
-    <td>70%</td>
+    <td>{{result.score}}%</td>
   </tr>
   </tbody>
 </table>

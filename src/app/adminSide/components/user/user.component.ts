@@ -51,7 +51,6 @@ export class UserComponent implements OnInit {
   getAll(){
     this.userService.AllUser().subscribe(res=>{
       this.users=res
-      console.log('r5s',this.users)
     })
   }
   delete(id: string) {

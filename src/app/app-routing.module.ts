@@ -52,7 +52,7 @@ const routes: Routes = [
       { path: 'inform', component: InformationComponent },
       { path: 'start', component: StartComponent },
       { path: 'test', component: TestComponent },
-      { path: 'res', component: ResultComponent },
+      { path: 'res/:id', component: ResultComponent },
       { path: 'usermsg', component: UsermsgComponent },
 
     ]

@@ -99,9 +99,13 @@ this.close()
 
 this.userService.upExCode(this.us._id,this.text).subscribe(
   res=>{
-    console.log('taèataaaaaaaaaaaaaa',res)
+    this.userService.sendemail(mail).subscribe(res=>{
+      console.log('taèataaaaaaaaaaaaaa',res)
+
+    })
   }
 )
+
   }
 
   gototest() {

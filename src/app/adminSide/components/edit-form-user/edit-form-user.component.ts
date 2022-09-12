@@ -21,13 +21,11 @@ user!:User
     this.id = this.route.snapshot.params["id"];
 this.userService.getOneUser(this.id).subscribe(res=>{
   this.user=res
-  console.log('haha',this.user)
 })
   }
   updateuser(){
   if(this.user.name==''||this.user.Activationcode==""||this.user.password.length<8){
     Swal.fire({title: "verify your data", icon: "error"})
-console.log(this.user,'tes3ynet')
   }else{
 this.userup=this.user
     this.userService.updateuser(this.user._id,this.userup).subscribe(res=>{

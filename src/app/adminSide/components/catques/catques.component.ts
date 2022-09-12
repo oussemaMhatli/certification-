@@ -21,9 +21,8 @@ name:string=''
     this.getQ()
   }
   getQ(){
-  this.quesS.getbycat(this.name).subscribe(res=>{
+  this.quesS.getby(this.name).subscribe(res=>{
     this.Q=res
-    console.log(this.Q,'ququrim')
   })
   }
 }

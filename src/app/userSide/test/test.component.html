@@ -5,7 +5,7 @@
 </div>
 <hr>
 <div *ngFor="let item of questions">
-  <app-quest [question]="item"></app-quest>
+  <app-quest [question]="item"  (score)="countChangedHandler($event)" (correctAnswer)="countChangedHandler1($event)" (incorrectAnswer)="countChangedHandler2($event)" (totaltype)="countChangedHandler3($event)"  ></app-quest>
 </div>
 <button type="button" class="btn btn-primary" style="margin-left: 90%" (click)="open()">finish test</button>
 <div class="modal fade my-modal" tabindex="-1" role="dialog" #edit>

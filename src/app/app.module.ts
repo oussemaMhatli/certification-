@@ -36,6 +36,7 @@ import { ListUserComponent } from './adminSide/components/list-user/list-user.co
 import { MsgComponent } from './adminSide/components/msg/msg.component';
 import { UsermsgComponent } from './userSide/usermsg/usermsg.component';
 import { CatquesComponent } from './adminSide/components/catques/catques.component';
+import { ResultPipe } from './pipes/result.pipe';
 
 
 @NgModule({
@@ -70,6 +71,7 @@ import { CatquesComponent } from './adminSide/components/catques/catques.compone
     MsgComponent,
     UsermsgComponent,
     CatquesComponent,
+    ResultPipe,
 
   ],
     imports: [

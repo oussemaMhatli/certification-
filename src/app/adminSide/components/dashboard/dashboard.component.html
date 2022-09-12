@@ -5,7 +5,7 @@
     <div class="col">
       <div class="card radius-10 border-start border-0 border-3 border-info">
         <div class="card-body">
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center" (click)="gotocat()">
             <div>
               <p class="mb-0 text-secondary">Categorie</p>
               <h4 class="my-1 text-info">{{nbrCat}}</h4>
@@ -20,7 +20,7 @@
     <div class="col">
       <div class="card radius-10 border-start border-0 border-3 border-info">
         <div class="card-body">
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center" (click)="gotoques()">
             <div>
               <p class="mb-0 text-secondary">Questions</p>
               <h4 class="my-1 text-info">{{nbrQ}}</h4>
@@ -35,7 +35,7 @@
     <div class="col">
       <div class="card radius-10 border-start border-0 border-3 border-info">
         <div class="card-body">
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center" (click)=" gotouser()">
             <div>
               <p class="mb-0 text-secondary">users</p>
               <h4 class="my-1 text-info">{{nbrU-1}}</h4>
@@ -51,7 +51,7 @@
     <div class="col">
       <div class="card radius-10 border-start border-0 border-3 border-info">
         <div class="card-body">
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center" (click)="gotoWho()">
             <div>
               <p class="mb-0 text-secondary">users passed exam</p>
               <h4 class="my-1 text-info">{{nbrUwho}}</h4>

@@ -50,16 +50,29 @@
   </div>
   <br>
   <div class="form-group">
-    <input type="text" class="form-control" name="cat"  [(ngModel)]="cat"  placeholder="Enter Categorie">
+    <div class="col">
+      <select  class="form-select" #cat (change)="onSelectedCat(cat.value)">
+        <option *ngFor="let i of categ" [ngValue]="i.name">{{i.name}}</option>
+
+      </select>
+    </div>
   </div>
   <br>
   <div class="form-group">
-    <input type="number" class="form-control" name="level" [(ngModel)]="level"  placeholder="Enter level">
+    <div class="col">
+      <select  class="form-select" #level (change)="onSelected1(level.value)">
+        <option default>choose level</option>
+        <option >level1</option>
+        <option>level2</option>
+
+      </select>
+    </div>
   </div>
   <br>
   <div class="form-group">
     <div class="col">
       <select  class="form-select" #types (change)="onSelected(types.value)">
+        <option default>choose type</option>
         <option default>type1</option>
         <option>type2</option>
         <option>type3</option>
