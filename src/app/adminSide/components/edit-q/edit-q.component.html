@@ -1,0 +1,84 @@
+<br>
+<h2><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Add New Question</h2>
+<hr>
+<form  >
+  <div class="form-group">
+    <textarea class="form-control" id="exampleFormControlTextarea1" name="text " [(ngModel)]="text" placeholder="Enter question in brief..." rows="3"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Image</label>
+    <input type="file"  class="form-control" name="file"  (change)="onImageUpload($event)" [(ngModel)]="file" id="exampleInputPassword1" placeholder="Enter Password">
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Zip</label>
+    <input type="file"  class="form-control" name="zip"  (change)="onImageUpload1($event)" [(ngModel)]="zip"  placeholder="zip">
+  </div>
+  <br>
+
+  <div class="form-check">
+    <mat-checkbox (change)="checkCheckBoxvalue($event)" id="btn1"#ch></mat-checkbox>
+    <label class="form-check-label" for="btn1">Reponse 1  </label>
+    <div class="form-group">
+      <input type="text" class="form-control" name="rep1" [(ngModel)]="rep1" placeholder="Reponse 1">
+    </div>
+
+  </div>
+  <div class="form-check">
+    <mat-checkbox (change)="checkCheckBoxvalue2($event)" id="btn2"#ch></mat-checkbox>
+    <label class="form-check-label" for="btn2">Reponse 2  </label>
+    <div class="form-group">
+      <input type="text" class="form-control" name="rep2" [(ngModel)]="rep2" placeholder="Reponse 2">
+    </div>
+
+  </div>
+  <div class="form-check">
+    <mat-checkbox (change)="checkCheckBoxvalue3($event)" id="btn3"#ch></mat-checkbox>
+    <label class="form-check-label" for="btn3">Reponse 3  </label>
+    <div class="form-group">
+      <input type="text" class="form-control" name="rep3" [(ngModel)]="rep3" placeholder="Reponse 3">
+    </div>
+
+  </div>
+  <div class="form-check">
+    <mat-checkbox (change)="checkCheckBoxvalue4($event)" id="btn4"#ch></mat-checkbox>
+    <label class="form-check-label" for="btn4">Reponse 4  </label>
+    <div class="form-group">
+      <input type="text" class="form-control" name="rep4" [(ngModel)]="rep4" placeholder="Reponse 4">
+    </div>
+
+  </div>
+  <br>
+  <div class="form-group">
+    <div class="col">
+      <select  class="form-select" #cat (change)="onSelectedCat(cat.value)">
+        <option *ngFor="let i of categ" [ngValue]="i.name">{{i.name}}</option>
+
+      </select>
+    </div>
+  </div>
+  <br>
+  <div class="form-group">
+    <div class="col">
+      <select  class="form-select" #level (change)="onSelected1(level.value)">
+        <option default>choose level</option>
+        <option >level1</option>
+        <option>level2</option>
+
+      </select>
+    </div>
+  </div>
+  <br>
+  <div class="form-group">
+    <div class="col">
+      <select  class="form-select" #types (change)="onSelected(types.value)">
+        <option default>choose type</option>
+        <option default>type1</option>
+        <option>type2</option>
+        <option>type3</option>
+        <option>type4</option>
+      </select>
+    </div>  </div>
+  <br>
+  <button type="button" (click)="update()" class="btn btn-primary">Create</button>
+</form>

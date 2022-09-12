@@ -4,7 +4,7 @@
   </div>
   <div class="story-author lay">
     <p class="name">{{user.name}}
-      <span class="badge rounded-pill badge-notification bg-danger"  >5</span>
+      <span class="badge rounded-pill badge-notification bg-danger" *ngIf="nbr>0" >{{nbr}}</span>
     </p>
   </div>
   <hr>

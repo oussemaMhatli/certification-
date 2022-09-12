@@ -35,4 +35,7 @@ export class QuestionsService {
   getby ( cat:string):Observable<any>{
     return this.http.get<any>(`${this.api}/findcat/${cat}` );
   }
+  getOne ( id:string):Observable<any>{
+    return this.http.get<any>(`${this.api}/one/${id}` );
+  }
 }

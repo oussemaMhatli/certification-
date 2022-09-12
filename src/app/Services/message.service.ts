@@ -35,4 +35,10 @@ export class MessageService {
   uodatemsgforhome():Observable<any>{
     return this.http.put<any>(`${this.api}/upd`,{})
   }
+  countfora(id:string):Observable<any>{
+    return this.http.get<any>(`${this.api}/f/${id}`)
+  }
+  ca(id:string):Observable<any>{
+    return this.http.put<any>(`${this.api}/u/${id}`,{})
+  }
 }

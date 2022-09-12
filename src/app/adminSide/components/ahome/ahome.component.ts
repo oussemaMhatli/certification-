@@ -23,7 +23,7 @@ user:any
 
   ngOnInit(): void {
     const token = localStorage.getItem('mariemmariem');
-
+  localStorage.removeItem('verif')
     if(token) {
       let decoded = jwt_decode(token);
 
@@ -35,6 +35,13 @@ user:any
     this.msgS.countmsgforhome(this.user.data._id).subscribe(res=>{
       this.nbrmsg=res
     })
+  if(this.nbrmsg>0){
+    localStorage.setItem('verif','true')
+
+  }else(
+    localStorage.setItem('verif','false')
+
+  )
   }
 
 
@@ -58,6 +65,7 @@ user:any
   updatevis() {
 this.msgS.uodatemsgforhome().subscribe(res=>{
   this.countmsg()
+
 })
 
   }
