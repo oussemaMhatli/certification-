@@ -26,9 +26,7 @@ export class ListUserComponent implements OnInit {
   count(){
     this.msgS.countfora(this.user._id).subscribe(res=>{
       this.nbr=res
-    if(this.nbr>0){
-      this.nbr=this.nbr+1
-    }
+
     })
   }
 }

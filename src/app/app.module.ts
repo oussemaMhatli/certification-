@@ -37,6 +37,7 @@ import { MsgComponent } from './adminSide/components/msg/msg.component';
 import { UsermsgComponent } from './userSide/usermsg/usermsg.component';
 import { CatquesComponent } from './adminSide/components/catques/catques.component';
 import { ResultPipe } from './pipes/result.pipe';
+import { AccueilComponent } from './accueil/accueil.component';
 
 
 @NgModule({
@@ -72,6 +73,7 @@ import { ResultPipe } from './pipes/result.pipe';
     UsermsgComponent,
     CatquesComponent,
     ResultPipe,
+    AccueilComponent,
 
   ],
     imports: [

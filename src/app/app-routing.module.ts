@@ -22,11 +22,12 @@ import {ResultComponent} from "./userSide/result/result.component";
 import {MsgComponent} from "./adminSide/components/msg/msg.component";
 import {UsermsgComponent} from "./userSide/usermsg/usermsg.component";
 import {CatquesComponent} from "./adminSide/components/catques/catques.component";
+import {AccueilComponent} from "./accueil/accueil.component";
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'acc',
     pathMatch: 'full'
   },
   { path: 'home', component: AhomeComponent ,
@@ -60,7 +61,8 @@ const routes: Routes = [
   },
   { path: 'login', component: LoginComponent },
   { path: 'registre', component: RegistreComponent },
-  { path: 'confirm/:id', component: ConfirmdeComponent }
+  { path: 'confirm/:id', component: ConfirmdeComponent },
+  { path: 'acc', component: AccueilComponent }
 
 ];
 
