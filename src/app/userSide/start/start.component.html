@@ -6,7 +6,7 @@
 
 <div class="row mb-3 host">
 
-  <div class="col-lg-4 card "  *ngFor="let item of categ|cat:Search"  >
+  <div class="col-lg-4 card " style="margin-left: 1%;"  *ngFor="let item of categ|cat:Search"  >
     <img class="card-img-top" src="{{fileUrl+item.img}}" style="height: 60%" alt="Card image cap">
     <div class="card-body">
       <h4 class="card-title"> {{item.name}}</h4>
@@ -30,7 +30,10 @@
 
         <button type="button" class="btn btn-secondary" (click)="close()">Close</button>
         <div id="formFooter">
+          <!--
           <a class="underlineHover" (click)="send()">Send an other code</a>
+
+          -->
         </div>
       </div>
     </div>

@@ -1,24 +1,63 @@
-<div class="sidenav">
-  <div class="login-main-text">
-    <h1 > <b>PLMCertification</b><br> Login Page</h1>
-    <p>Login or register from here to access.</p>
-  </div>
-</div>
-<div class="main">
-  <div class="col-md-6 col-sm-12">
-    <div class="login-form">
-      <form [formGroup]="loginForm">
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" class="form-control" formControlName="email" placeholder="User Name">
+<app-header></app-header>
+<section class="text-center text-lg-start">
+  <style>
+    .cascading-right {
+      margin-right: -30px;
+    }
+
+    @media (max-width: 991.98px) {
+      .cascading-right {
+        margin-right: 0;
+      }
+    }
+  </style>
+
+  <!-- Jumbotron -->
+  <div class="container py-4">
+    <div class="row g-0 align-items-center">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="card cascading-right" style="
+            background: hsla(0, 0%, 100%, 0.55);
+            backdrop-filter: blur(30px);
+            ">
+          <div class="card-body p-5 shadow-5 text-center">
+            <h2 class="fw-bold mb-5">Connecter à votre propre compte</h2>
+            <form [formGroup]="loginForm">
+               <!-- Email input -->
+              <div class="col-md-6 mb-4">
+                  <label class="form-label" for="form3Example3">Adresse Email</label>
+                <input type="email" id="mail" class="form-control" placeholder="placer votre adresse mail" name="email" formControlName="email" />
+              </div>
+
+              <!-- Password input -->
+              <div class="col-md-6 mb-4">
+                  <label class="form-label" for="form3Example4">Mot de passe</label>
+                <input type="password" id="mdp" class="form-control" placeholder="entrer votre mot de passe" name="password" formControlName="password"/>
+              </div>
+
+              <!-- Submit button -->
+              <button type="submit" class="btn btn-primary btn-block mb-4" [disabled]="!loginForm.valid"  (click)="loginAdmin()" >
+                Connecter
+              </button>
+
+              <p>
+                Vous n'avez pas encore un compte ?
+              <p>
+              <a (click)="go()">
+                Inscrire
+              </a>
+
+            </form>
+          </div>
         </div>
-        <div class="form-group">
-          <label>Password</label>
-          <input type="password" formControlName="password" class="form-control" placeholder="Password">
-        </div>
-        <button type="button" class="btn btn-black" [disabled]="!loginForm.valid"  (click)="loginAdmin()">Login</button>
-        <button type="submit" class="btn btn-secondary" (click)="go()">Register</button>
-      </form>
+      </div>
+
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <img src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg" class="w-100 rounded-4 shadow-4"
+          alt="" />
+      </div>
     </div>
   </div>
-</div>
+  <!-- Jumbotron -->
+</section>
+<app-footer>

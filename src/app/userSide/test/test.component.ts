@@ -1,6 +1,5 @@
 import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {QuestionsService} from "../../Services/questions.service";
-import {Observable, SchedulerLike, timer} from "rxjs";
 import {Router} from "@angular/router";
 import {ResultService} from "../../Services/result.service";
 import {Result} from "../../models/result";
@@ -68,7 +67,6 @@ user:any
 
       }
     },1000)
-
   }
   open(): void {
     this.elm1.classList.add('show');
@@ -97,6 +95,17 @@ user:any
   timeLeft: number = 10800;
   interval:any;
 //10800
+formatTime(time: number): string {
+  const hours = Math.floor(time / 3600);
+  const minutes = Math.floor((time % 3600) / 60);
+  const seconds = time % 60;
+
+  return `${this.padZero(hours)}:${this.padZero(minutes)}:${this.padZero(seconds)}`;
+}
+
+padZero(value: number): string {
+  return value.toString().padStart(2, '0');
+}
 
 
   pauseTimer() {
@@ -130,8 +139,7 @@ user:any
    console.log(res,'bringa')
    this.router.navigate(['/userhome/res/'+res._id])
 
-   console.log('rou7zebda',(this.scoreS.s/this.totlalType)*100)
-   console.log(this.totlalType,'offffffffff')
+
  })
 
   }

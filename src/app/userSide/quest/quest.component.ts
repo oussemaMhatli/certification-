@@ -53,10 +53,8 @@ totaltype1!:number
     this.rep=this.form.value.rep1
 
   if(this.question.reponse1.id==this.rep){
-    console.log('3anif ',this.rep)
     if(this.question.reponse1.correct==true){
       this.s=this.s+this.question.type
-      console.log('s 7cheh',this.s)
      this.correctAnswer1=this.correctAnswer1+1
     }
     else{
@@ -64,7 +62,6 @@ totaltype1!:number
     }
   }
     if(this.question.reponse2.id==this.rep){
-      console.log('3anif ',this.rep)
 
       if(this.question.reponse2.correct==true){
         this.s=this.s+this.question.type
@@ -87,7 +84,6 @@ totaltype1!:number
       }
     }
     if(this.question.reponse4.id==this.rep){
-      console.log('3anif ',this.rep)
 
       if(this.question.reponse4.correct==true){
         this.s=this.s+this.question.type
@@ -104,7 +100,6 @@ totaltype1!:number
     this.correctAnswer.emit(this.correctAnswer1);
     this.incorrectAnswer.emit(this.incorrectAnswer1);
 
-    console.log(this.s,'yanary')
   }
   getvalue(){
 this.s=0
@@ -136,9 +131,7 @@ this.s=0
       this.incorrectAnswer1=this.incorrectAnswer1+1
     }
 
-    console.log(this.incorrectAnswer1,'incor ')
-    console.log(this.correctAnswer1,'cor ')
-    console.log(this.s,'nchl ya raby')
+
     this.correctAnswer.emit(this.correctAnswer1);
     this.incorrectAnswer.emit(this.incorrectAnswer1);
 

@@ -64,6 +64,7 @@ cat!:any
   open(): void {
     this.elm1.classList.add('show');
     this.elm1.style.width = '100vw';
+    console.log('ezeby')
   }
 
   open1(_id: any): void {
@@ -78,7 +79,7 @@ this.catService.findOne(_id).subscribe(res=>{
 })
   }
   delete(id: string) {
-    if(confirm("you sure to delete this categorie!! ?")) {
+    if(confirm("you sure to delete this Exam!! ?")) {
       this.catService.deleteCat(id).subscribe(form=>{
         this.getAll();
       })
@@ -147,5 +148,8 @@ Ca.img=res.filename
 
   go(name:string) {
     this.router.navigate(['/home/quest/'+name])
+  }
+  gopres(name:string) {
+    this.router.navigate(['/home/res/'+name])
   }
 }

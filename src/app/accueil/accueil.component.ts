@@ -7,10 +7,12 @@ import {Router} from "@angular/router";
   styleUrls: ['./accueil.component.css']
 })
 export class AccueilComponent implements OnInit {
+  title = 'front';
 
   constructor(private route :Router) { }
 
   ngOnInit(): void {
+
   }
 
   go() {

@@ -1,80 +1,100 @@
-<div class="container register">
-  <div class="row">
-    <div class="col-md-3 register-left">
-      <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
-      <h3>Welcome</h3>
-      <p>if you have an account click to login</p>
-      <input type="submit" name="" (click)="go()" value="Login"/><br/>
-    </div>
-    <div class="col-md-9 register-right">
+<app-header></app-header>
+<!-- Section: Design Block -->
+<section class="text-center text-lg-start">
+  <style>
+    .cascading-right {
+      margin-right: -30px;
+    }
 
-      <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-          <h3 class="register-heading">Apply as a User</h3>
-          <div class="row register-form">
-            <div class="col-md-6">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder=" Name *" name="name" [(ngModel)]="name" value="" />
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Postal code *" name="postal" [(ngModel)]="postal" value="" />
-              </div>
-              <div class="form-group">
-                <input type="password" class="form-control" placeholder="Password *" name="password" [(ngModel)]="password" value="" />
-              </div>
+    @media (max-width: 991.98px) {
+      .cascading-right {
+        margin-right: 0;
+      }
+    }
+  </style>
 
+  <!-- Jumbotron -->
+  <div class="container py-4">
+    <div class="row g-0 align-items-center">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="card cascading-right" style="
+            background: hsla(0, 0%, 100%, 0.55);
+            backdrop-filter: blur(30px);
+            ">
+          <div class="card-body p-5 shadow-5 text-center">
+            <h2 class="fw-bold mb-5">Créer votre propre compte</h2>
+            <form>
+              <!-- 2 column grid layout with text inputs for the first and last names -->
 
+                <div class="row">
+                <div class="col-md-6 mb-4">
+                  <label class="form-label" for="form3Example2">NOM</label>
+                  <input type="text" id="nom" class="form-control" placeholder="Entrer votre NOM" name="name" [(ngModel)]="name"/>
+              </div>
+              <div class="col-md-6 mb-4">
+                <label class="form-label" for="form3Example2">Code Postal</label>
+                <input type="text" id="prenom" class="form-control" placeholder="Entrer votre prenom" name="postal" [(ngModel)]="postal"/>
+              </div>
             </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <input type="email" class="form-control" placeholder="Your Email *" name="email" [(ngModel)]="email" value="" />
-              </div>
-              <div class="form-group">
-                <input type="file" name="img"  (change)="onImageUpload($event)" [(ngModel)]="img" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" value="" />
-              </div>
-
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Confirm Password" name="pass" [(ngModel)]="pass" value="" />
-              </div>
-              <input type="submit" class="btnRegister" (click)="register()" value="Register"/>
-            </div>
+              <div class="row">
+            <div class="col-md-6 mb-4">
+              <label class="form-label" for="form3Example2">Email</label>
+              <input type="email" id="entreprise" class="form-control" placeholder="Entrer le nom de votre email" name="email" [(ngModel)]="email"/>
           </div>
+          <div class="col-md-6 mb-4">
+            <label class="form-label" for="form3Example2">Photo</label>
+            <input type="file" name="img"  (change)="onImageUpload($event)" [(ngModel)]="img" id="direction" class="form-control" />
         </div>
-        <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-          <h3  class="register-heading">Apply as a Hirer</h3>
-          <div class="row register-form">
-            <div class="col-md-6">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="First Name *" value="" />
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Last Name *" value="" />
-              </div>
-              <div class="form-group">
-                <input type="email" class="form-control" placeholder="Email *" value="" />
-              </div>
-              <div class="form-group">
-                <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
+      </div>
+              <!-- Email input -->
+              <div class="row">
+              <div class="col-md-6 mb-4">
+                <label class="form-label" for="form3Example3">Confirmer Mot De Passe</label>
+                <input type="password" placeholder="Confirm Password" name="pass" [(ngModel)]="pass" id="mail" class="form-control" placeholder="Entrer votre adresse mail"/>
               </div>
 
-
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <input type="password" class="form-control" placeholder="Password *" value="" />
-              </div>
-              <div class="form-group">
-                <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
-              </div>
-
-              <div class="form-group">
-                <input type="password" class="form-control" placeholder="`Answer *" value="" />
+              <!-- Password input -->
+              <div class="col-md-6 mb-4">
+                <label class="form-label" for="form3Example4">Mot de passe</label>
+                <input type="password" id="mdp" name="password" [(ngModel)]="password" value="" class="form-control" placeholder="Entrer une mot de passe de 8 caractère"/>
               </div>
             </div>
+              <!-- Submit button -->
+              <button type="submit" class="btn btn-primary btn-block mb-4" (click)="register()">
+                Inscrire
+              </button>
+
+              <!-- Register buttons -->
+              <div class="text-center">
+                <p>visitez les autres plateforme</p>
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <a href="https://www.facebook.com/CNITUNISI">
+                    <i class="bi bi-facebook"></i></a>
+                </button>
+
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <a href="http://www.cni.tn/index.php/fr/?view=page&id=44">
+                    <i class="bi bi-google"></i></a>
+                </button>
+
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <a href="https://twitter.com/cnitunisia">
+                    <i class="bi bi-twitter"></i>
+                  </a>
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
+
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <img src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg" class="w-100 rounded-4 shadow-4"
+          alt="" />
+      </div>
     </div>
   </div>
-
-</div>
+  <!-- Jumbotron -->
+</section>
+<!-- Section: Design Block -->
+<app-footer></app-footer>

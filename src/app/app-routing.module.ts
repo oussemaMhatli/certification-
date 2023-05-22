@@ -23,6 +23,8 @@ import {MsgComponent} from "./adminSide/components/msg/msg.component";
 import {UsermsgComponent} from "./userSide/usermsg/usermsg.component";
 import {CatquesComponent} from "./adminSide/components/catques/catques.component";
 import {AccueilComponent} from "./accueil/accueil.component";
+import { AboutComponent } from './about/about.component';
+import { PresenceComponent } from './adminSide/components/presence/presence.component';
 
 const routes: Routes = [
   {
@@ -43,6 +45,9 @@ const routes: Routes = [
       { path: 'Dashboard', component: DashboardComponent },
       { path: 'msg/:id', component: MsgComponent },
       { path: 'quest/:id', component: CatquesComponent },
+      { path: 'res/:id', component: PresenceComponent },
+
+
 
     ]
 
@@ -62,7 +67,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registre', component: RegistreComponent },
   { path: 'confirm/:id', component: ConfirmdeComponent },
-  { path: 'acc', component: AccueilComponent }
+  { path: 'acc', component: AccueilComponent },
+  { path: 'about', component: AboutComponent }
+
 
 ];
 

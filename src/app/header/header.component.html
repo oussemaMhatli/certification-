@@ -1,0 +1,80 @@
+<!--
+<app-formulaire></app-formulaire>
+
+<app-inscription></app-inscription>
+-->
+
+<!-- Navbar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid justify-content-between">
+    <!-- Left elements -->
+    <div class="d-flex">
+      <!-- Brand -->
+      <a class="nav-link" routerLink="/"><img src="/assets/logoCNI.png" class="rounded-circle"
+        tyle="margin-top: 30px;" height="70"/></a>
+
+      <!-- Search form -->
+      <form class="input-group w-auto my-auto d-none d-sm-flex">
+        <input
+          autocomplete="off"
+          type="search"
+          class="form-control rounded"
+          placeholder="Recherche"
+          style="min-width: 100px;"/>
+        <span class="input-group-text border-0 d-none d-lg-flex">
+          <i class="bi bi-search"></i>
+        </span>
+      </form>
+    </div>
+    <!-- Left elements -->
+
+    <!-- Center elements -->
+    <ul class="navbar-nav flex-row d-none d-md-flex">
+      <li class="nav-item me-3 me-lg-1" >
+        <a class="nav-link" (click)="goAccueil()" style="color: #026670; font-weight:bold;">Accueil</a>
+      </li>
+
+      <li class="nav-item me-3 me-lg-1" >
+        <a class="nav-link" (click)="goabout()" style="color: #026670; font-weight:bold;"> A propos</a>
+      </li>
+
+
+      <li class="nav-item dropdown">
+        <a class="nav-link menu-item dropdown-toggle" (click)="toggleDropdown()" [class.show]="dropdownOpen" style="color: #026670; font-weight:bold;">
+          Les formations
+        </a>
+        <div class="dropdown-menu" [class.show]="dropdownOpen" (click)="closeDropdown()">
+          <!-- Loop through categories and generate dropdown items -->
+          <ng-container *ngFor="let category of categ">
+            <button class="dropdown-item menu-item" type="button" (click)="selectCategory(category)">
+              {{ category.name }}
+            </button>
+          </ng-container>
+        </div>
+      </li>
+
+
+
+    </ul>
+
+    <!-- Center elements -->
+
+    <!-- Right elements -->
+    <ul class="navbar-nav flex-row">
+
+      <li mdbDropdown class="nav-item  me-3 me-lg-1">
+
+        <a class="nav-link " (click)="go()"  id=""role="button" style="color: #026670;">
+          <i class="bi bi-door-open" id="doorIcon"></i>
+          <div id="onhoverIcon">Se connecter</div>
+
+        </a>
+      </li>
+
+
+    </ul>
+    <!-- Right elements -->
+  </div>
+</nav>
+<!-- Navbar -->
+

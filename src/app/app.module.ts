@@ -38,6 +38,10 @@ import { UsermsgComponent } from './userSide/usermsg/usermsg.component';
 import { CatquesComponent } from './adminSide/components/catques/catques.component';
 import { ResultPipe } from './pipes/result.pipe';
 import { AccueilComponent } from './accueil/accueil.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { AboutComponent } from './about/about.component';
+import { PresenceComponent } from './adminSide/components/presence/presence.component';
 
 
 @NgModule({
@@ -74,8 +78,11 @@ import { AccueilComponent } from './accueil/accueil.component';
     CatquesComponent,
     ResultPipe,
     AccueilComponent,
-
-  ],
+      HeaderComponent,
+      FooterComponent,
+      AboutComponent,
+      PresenceComponent
+   ],
     imports: [
         FormsModule,
         HttpClientModule,

@@ -1,7 +1,8 @@
 
 <div class="toptop">
   <h3><i class="fa fa-pencil-square-o" aria-hidden="true"></i>certification test</h3>
-  <p style="margin-left: 70%"><span style="color: #fd3550">{{timeLeft/3600}}H</span> Seconds Left....</p>
+  <p style="margin-left: 70%"><span style="color: #fd3550">{{ formatTime(timeLeft) }}</span> Seconds Left....</p>
+
 </div>
 <hr>
 <div *ngFor="let item of questions">

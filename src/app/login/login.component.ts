@@ -33,7 +33,7 @@ user:any
           this.user=decoded;
         }
         if(this.user.data.role===0){
-          this.router.navigate(['/home'])        }
+          this.router.navigate(['/home/Dashboard'])        }
        if(this.user.data.role===1){
           if(this.user.data.isEmailConfirmed===false){
             Swal.fire({title: "email not confirmed", icon: "error"})

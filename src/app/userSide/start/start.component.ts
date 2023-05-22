@@ -101,6 +101,7 @@ this.userService.upExCode(this.us._id,this.text).subscribe(
   res=>{
     this.userService.sendemail(mail).subscribe(res=>{
       console.log('taèataaaaaaaaaaaaaa',res)
+      Swal.fire({"title":"email sended","icon":"success"})
 
     })
   }

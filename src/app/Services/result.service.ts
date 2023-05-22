@@ -24,5 +24,7 @@ export class ResultService {
   getone(id:string):Observable<any>{
     return this.http.get<any>(`${this.api}/one/${id}`)
   }
-
+  getCat(cat:string):Observable<any>{
+    return this.http.get<any>(`${this.api}/getByCat/${cat}`)
+  }
 }
