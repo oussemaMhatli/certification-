@@ -41,7 +41,9 @@ cat!:any
  }
   onImageUpload(event: any) {
     this.img = event.target.files[0];
-
+  }
+  onImageUpdate(event: any) {
+    this.upimg = event.target.files[0];
   }
   ngAfterViewInit(): void {
     this.elm1 = this.myModal1.nativeElement as HTMLElement;
@@ -92,6 +94,7 @@ this.catService.findOne(_id).subscribe(res=>{
   create() {
     let c=new Cat()
     if(this.name.length>0 && this.img!=undefined){
+      console.log(this.img,"karhbt kamal")
       this.fileservice.upload(this.img).subscribe(res => {
 
       c.name=this.name
@@ -114,7 +117,9 @@ this.catService.findOne(_id).subscribe(res=>{
   update() {
     if(this.nam.length>0 && this.upimg!=undefined && this.descup.length>0){
       let Ca=new Cat()
+      console.log(this.upimg,"kawatchou")
       this.fileservice.upload(this.upimg).subscribe(res => {
+        console.log(res,"result")
 Ca.img=res.filename
         Ca.name=this.nam
       Ca.desc=this.descup
@@ -125,7 +130,7 @@ Ca.img=res.filename
         this.close1()
         this.getAll();
       })
-      })
+      },error=>{console.log(error,"error")})
     }else{
       let Ca=new Cat()
       this.fileservice.upload(this.img).subscribe(res => {

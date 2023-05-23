@@ -1,29 +1,12 @@
-<br>
+<br />
 <div class="toptop">
-  <button type="button" style="width: 300px;" class="btn btn-primary  " (click)="open()" > <i class="fa fa-plus" aria-hidden="true" ></i>Add Exam</button>
-  <input type="text" name="Search" class="input-group-text" [(ngModel)]="Search"   style="width: 280px " placeholder="Search">
+  <button type="button" style="width: 300px" class="btn btn-primary" (click)="open()">
+    <i class="fa fa-plus" aria-hidden="true"></i>Add Exam
+  </button>
+  <input type="text" name="Search" class="input-group-text" [(ngModel)]="Search" style="width: 280px"
+    placeholder="Search" />
 </div>
-<hr>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<hr />
 
 <!-- Collapsable Card  -->
 <div class="card mb-4">
@@ -31,101 +14,98 @@
 
   <!-- Card Content - Collapse -->
 
-
-
-
-
-
-
-
+  <div class="container">
+    <div class="row">
+      <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"
+        integrity="sha256-3sPp8BkKUE7QyPSl6VfBByBroQbKxKG7tsusY2mhbVY=" crossorigin="anonymous" />
       <div class="container">
-          <div class="row">
-
-
-              <link rel="stylesheet"
-                  href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"
-                  integrity="sha256-3sPp8BkKUE7QyPSl6VfBByBroQbKxKG7tsusY2mhbVY=" crossorigin="anonymous" />
-              <div class="container">
-                  <div class="row justify-content-center">
-
-                      <div class="col-md-6 col-lg-4 mb-30" *ngFor="let item of categ|cat:Search">
-                          <div class="team-item">
-                              <div class="mb-30 position-relative d-flex align-items-center">
-                                  <span class="socials d-inline-block">
-                                      <a class="circle zmdi zmdi-delete danger text-danger" (click)="delete(item._id)"></a>
-                                      <a class="circle zmdi zmdi zmdi-edit" (click)="open1(item._id)"></a>
-                                      <a class="circle zmdi zmdi-menu" (click)="go(item.name)"  ></a>
-                                      <a class="circle zmdi zmdi-account-add" (click)="gopres(item.name)" ></a>
-
-                                  </span>
-                                  <span class="img-holder d-inline-block">
-                                      <img src="{{fileUrl+item.img}}" alt="Team" style="height: 200px;">
-                                  </span>
-                              </div>
-                              <div class="team-content">
-                                  <h5 class="mb-2">{{item.name}}</h5>
-                                  <p class="mb-0">{{item.desc}}</p>
-
-                              </div>
-                          </div>
-                      </div>
-                  </div>
+        <div class="row justify-content-center">
+          <div class="col-md-6 col-lg-4 mb-30" *ngFor="let item of categ | cat : Search">
+            <div class="team-item">
+              <div class="mb-30 position-relative d-flex align-items-center">
+                <span class="socials d-inline-block">
+                  <a class="circle zmdi zmdi-delete danger text-danger" (click)="delete(item._id)"></a>
+                  <a class="circle zmdi zmdi zmdi-edit" (click)="open1(item._id)"></a>
+                  <a class="circle zmdi zmdi-menu" (click)="go(item.name)"></a>
+                  <a class="circle zmdi zmdi-account-add" (click)="gopres(item.name)"></a>
+                </span>
+                <span class="img-holder d-inline-block">
+                  <img src="{{ fileUrl + item.img }}" alt="Team" style="height: 200px" />
+                </span>
               </div>
-
-
-
-              <div class="modal fade my-modal" tabindex="-1" role="dialog" #add>
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-body">
-
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Categorie Name</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" name="name" [(ngModel)]="name" aria-describedby="emailHelp" placeholder="Enter categorie name">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail2">logo</label>
-                        <input type="file" class="form-control" id="exampleInputEmail2" name="img"  (change)="onImageUpload($event)" [(ngModel)]="img" aria-describedby="emailHelp" placeholder="Enter categorie name">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail#">Description</label>
-                        <input type="email" class="form-control" id="exampleInputEmail#" name="desc" [(ngModel)]="desc" aria-describedby="emailHelp" placeholder="Enter categorie name">
-                      </div>
-
-                      <button type="button" class="btn btn-success" (click)="create()">create</button>
-                      <button type="button" class="btn btn-secondary" (click)="close()">Close</button>
-                    </div>
-                  </div>
-                </div>
+              <div class="team-content">
+                <h5 class="mb-2">{{ item.name }}</h5>
+                <p class="mb-0">{{ item.desc }}</p>
               </div>
-
-              <div class="modal fade my-modal" tabindex="-1" role="dialog" #edit>
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-body">
-
-                      <div class="form-group">
-                        <label for="exampleInputEmail">Categorie Name</label>
-                        <input type="email" class="form-control" id="exampleInputEmail" name="catname" [(ngModel)]="nam" aria-describedby="emailHelp" placeholder="Enter categorie name">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmaila1">logo</label>
-                        <input type="file" class="form-control" id="exampleInputEmaila1" name="upimg" (change)="onImageUpload($event)" [(ngModel)]="upimg" aria-describedby="emailHelp" placeholder="Enter categorie name">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmaila2">Description</label>
-                        <input type="email" class="form-control" id="exampleInputEmaila2" name="descup" [(ngModel)]="descup" aria-describedby="emailHelp" placeholder="Enter categorie name">
-                      </div>
-                      <button type="button" class="btn btn-success" (click)="update()">update</button>
-
-                      <button type="button" class="btn btn-secondary" (click)="close1()">Close</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            </div>
           </div>
+        </div>
       </div>
 
+      <div class="modal fade my-modal" tabindex="-1" role="dialog" #add>
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Categorie Name</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" name="name" [(ngModel)]="name"
+                  aria-describedby="emailHelp" placeholder="Enter categorie name" />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail2">logo</label>
+                <input type="file" class="form-control" id="exampleInputEmail2" name="img"
+                  (change)="onImageUpload($event)" [(ngModel)]="img" aria-describedby="emailHelp"
+                  placeholder="Enter categorie name" />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail#">Description</label>
+                <input type="email" class="form-control" id="exampleInputEmail#" name="desc" [(ngModel)]="desc"
+                  aria-describedby="emailHelp" placeholder="Enter categorie name" />
+              </div>
 
+              <button type="button" class="btn btn-success" (click)="create()">
+                create
+              </button>
+              <button type="button" class="btn btn-secondary" (click)="close()">
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <div class="modal fade my-modal" tabindex="-1" role="dialog" #edit>
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="exampleInputEmail">Categorie Name</label>
+                <input type="email" class="form-control" id="exampleInputEmail" name="catname" [(ngModel)]="nam"
+                  aria-describedby="emailHelp" placeholder="Enter categorie name" />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmaila1">logo</label>
+                <input type="file" class="form-control" id="exampleInputEmaila1" name="upimg"
+                  (change)="onImageUpdate($event)" [(ngModel)]="upimg" aria-describedby="emailHelp"
+                  placeholder="Enter categorie name" />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmaila2">Description</label>
+                <input type="email" class="form-control" id="exampleInputEmaila2" name="descup" [(ngModel)]="descup"
+                  aria-describedby="emailHelp" placeholder="Enter categorie name" />
+              </div>
+              <button type="button" class="btn btn-success" (click)="update()">
+                update
+              </button>
 
+              <button type="button" class="btn btn-secondary" (click)="close1()">
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
