@@ -1,7 +1,10 @@
 <h2 style="color: #15ca20;margin-left: 25%" *ngIf="result.score>=75">congratulation on your outstanding result.you passed exam</h2>
 <h2 style="color: #fd3550;margin-left: 30%" *ngIf="result.score<75">sorry you have under of 75% .Good luck</h2>
-<button class="btn btn-success" style="margin-left: 80%" *ngIf="result.score>=75" >download certfication</button>
-<table class="table">
+<button class="btn btn-success" style="margin-left: 80%"  (click)="download()">download certfication</button>
+<div  #pdfTemplate >
+<h1 style="text-align: center;">{{ result.name }}</h1>
+
+<table class="table" >
   <thead>
   <tr>
     <th scope="col">total number of question</th>
@@ -32,3 +35,4 @@
   </tr>
   </tbody>
 </table>
+</div>
