@@ -45,7 +45,9 @@ api=environment.Api+'user'
   upExCode(id:string,code:string):Observable<any>{
     return this.http.patch<any>(`${this.api}/exam/${id}/${code}`,{})
   }
-
+  upPassed(id:string):Observable<any>{
+    return this.http.patch<any>(`${this.api}/passed/${id}`,{})
+  }
   UpdateUser(id: string, data: User):Observable<any>{
     return this.http.put<any>(`${this.api}/up/${id}`,data)
   }

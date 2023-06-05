@@ -5,6 +5,7 @@ import {ResultService} from "../../Services/result.service";
 import {Result} from "../../models/result";
 import jwt_decode from "jwt-decode";
 import {ScoreService} from "../../Services/score.service";
+import { UserService } from 'src/app/Services/user.service';
 
 @Component({
   selector: 'app-test',
@@ -28,7 +29,7 @@ a!:number
   elm1!: HTMLElement;
 user:any
   constructor(private QService:QuestionsService,private router:Router,
-              private RS:ResultService, private scoreS:ScoreService) { }
+              private RS:ResultService, private scoreS:ScoreService ,private UserService:UserService) { }
   ngAfterViewInit(): void {
     this.elm1 = this.myModal1.nativeElement as HTMLElement;
 
@@ -135,8 +136,8 @@ padZero(value: number): string {
     R.score=(this.scoreS.s/this.totlalType)*100
     R.examDate=new Date()
     R.userID=this.user.data._id
+  this.UserService.upPassed(this.user.data._id).subscribe(res=>{})
  this.RS.creatR(R).subscribe(res=>{
-   console.log(res,'bringa')
    this.router.navigate(['/userhome/res/'+res._id])
 
 
@@ -145,9 +146,7 @@ padZero(value: number): string {
   }
   countChangedHandler(e:any) {
    this.scoreS.cal(e.id,e.test)
-    console.log('hedhy li 7ajtna bha tw',this.scoreS.s)
-    console.log('correct',this.scoreS.correct)
-    console.log('noncorrect',this.scoreS.incorrect)
+
 
   }
   countChangedHandler1(count: number) {

@@ -29,7 +29,7 @@ cat!:any
   name: string='';
   desc: string='';
   img!: any;
-  upimg: any;
+  upimg!: any;
   descup!:string
   ngOnInit(): void {
     this.getAll()
@@ -66,7 +66,6 @@ cat!:any
   open(): void {
     this.elm1.classList.add('show');
     this.elm1.style.width = '100vw';
-    console.log('ezeby')
   }
 
   open1(_id: any): void {

@@ -71,65 +71,69 @@ file:any;
   }
 
   async addForm() {
+if(this.selectedCat==''){
+  Swal.fire({title:"choisir categorie",icon:"error"})
+}else{
+  let q = new Question();
 
-    let q = new Question();
-
-    this.fileService.upload(this.file).subscribe(res => {
+  this.fileService.upload(this.file).subscribe(res => {
 
 
-      q.questionText=this.text
-      q.img=res.filename;
-      if(this.selected=='level1'){
-        q.level='level1'
-      }
-      if(this.selected=='level2'){
-        q.level='level2'
-      }
-      if(this.selectedType=='type1'){
-        q.type=10
-      }
-      if(this.selectedType=='type2'){
-        q.type=15
-      }
-      if(this.selectedType=='type3'){
-        q.type=20
-      }
-      if(this.selectedType=='type4'){
-        q.type=25
-      }
+    q.questionText=this.text
+    q.img=res.filename;
+    if(this.selected=='level1'){
+      q.level='level1'
+    }
+    if(this.selected=='level2'){
+      q.level='level2'
+    }
+    if(this.selectedType=='type1'){
+      q.type=10
+    }
+    if(this.selectedType=='type2'){
+      q.type=15
+    }
+    if(this.selectedType=='type3'){
+      q.type=20
+    }
+    if(this.selectedType=='type4'){
+      q.type=25
+    }
 
-      q.categorie=this.selectedCat
-      q.choices=[this.rep1,this.rep2,this.rep3,this.rep4]
-      if(this.ch1){
-        q.correct=this.rep1
-      }
-      if(this.ch2){
-        q.correct=this.rep2
-      }
-      if(this.ch3){
-        q.correct=this.rep3
-      }
-      if(this.ch4){
-        q.correct=this.rep4
-      }
-      if(this.zip==undefined){
-        q.zip=""
+    q.categorie=this.selectedCat
+    q.choices=[this.rep1,this.rep2,this.rep3,this.rep4]
+    if(this.ch1){
+      q.correct=this.rep1
+    }
+    if(this.ch2){
+      q.correct=this.rep2
+    }
+    if(this.ch3){
+      q.correct=this.rep3
+    }
+    if(this.ch4){
+      q.correct=this.rep4
+    }
+    if(this.zip==undefined){
+      q.zip=""
+      this.Qservice.createQ(q).subscribe(res => {
+        Swal.fire({title: "Question created", icon: "success"})
+      }, err => Swal.fire('champs non valide', 'error', "error"))
+    }else{
+      this.fileService.upload(this.zip).subscribe(data=>{
+
+        q.zip=data.filename
+
+
         this.Qservice.createQ(q).subscribe(res => {
           Swal.fire({title: "Question created", icon: "success"})
         }, err => Swal.fire('champs non valide', 'error', "error"))
-      }else{
-        this.fileService.upload(this.zip).subscribe(data=>{
+      })
+    }
 
-          q.zip=data.filename
+  })
+}
 
-
-          this.Qservice.createQ(q).subscribe(res => {
-            Swal.fire({title: "Question created", icon: "success"})
-          }, err => Swal.fire('champs non valide', 'error', "error"))
-        })
-      }
-
-    })
 
   }
 

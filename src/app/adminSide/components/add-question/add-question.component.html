@@ -52,6 +52,7 @@
   <div class="form-group">
     <div class="col">
       <select  class="form-select" #cat (change)="onSelectedCat(cat.value)">
+        <option >Choisir Une Categorie</option>
         <option *ngFor="let i of categ" [ngValue]="i.name">{{i.name}}</option>
 
       </select>
